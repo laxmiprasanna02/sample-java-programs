@@ -3,9 +3,10 @@ on:
   push:
     branches:
       - main
-    pull_request:
-      - main
-    workflow_dispatch:
+  pull_request:
+   branches:
+       - main
+  workflow_dispatch:
 jobs:
   maven:
     runs-on: ubuntu-latest
