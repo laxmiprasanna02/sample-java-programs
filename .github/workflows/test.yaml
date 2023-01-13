@@ -1,0 +1,29 @@
+name: first github actions
+on:
+  push:
+    branches:
+      - main
+    pull_request:
+      - main
+    workflow_dispatch:
+jobs:
+  maven:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: hello world
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: java version
+        run: java -version
+      - name: maven installation
+        run: | 
+             sudo apt install maven -y
+             sudo mkdir maven
+             cd maven
+             
+             pwd |ls -l
+             cd maven-web-application
+             sudo mvn clean package install
+             docker build . --file Dockerfile -t laxm:1 
