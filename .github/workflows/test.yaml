@@ -25,6 +25,6 @@ jobs:
              cd maven
              
              pwd |ls -l
-             cd maven-web-application
+             
              sudo mvn clean package install
              docker build . --file Dockerfile -t laxm:1 
